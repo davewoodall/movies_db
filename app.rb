@@ -1,5 +1,5 @@
 require "sinatra"
-require './models/api'
+require './models/flick'
 require 'sinatra/jbuilder'
 
 get '/movies' do
@@ -8,11 +8,15 @@ get '/movies' do
   else
     Flick.all
   end
-  jbuilder(:index, {}, data: data)
+  jbuilder(:'movies/index', {}, data: data)
+end
+
+get '/' do
+  jbuilder(:'movies/index', {}, data: Flick.all)
 end
 
 get '/movies/:id' do # _pageination
-  jbuilder(:show, {}, { flick: Flick.new.movie(params[:id])})
+  jbuilder(:'movies/show', {}, { flick: Flick.new.movie(params[:id])})
 end
 
 

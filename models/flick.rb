@@ -29,7 +29,7 @@ class Flick
   end
 
   def self.all
-    Movie.limit(15)
+    Movie.all
   end
 end
 

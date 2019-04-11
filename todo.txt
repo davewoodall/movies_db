@@ -1,0 +1,33 @@
+#### List All Movies
+
+
+* An endpoint exists that lists:
+  2.  by a particular year
+    * [ ] List is sorted by date in chronological order
+    * [ ] Sort order can be descending
+* [ ] List is paginated: 50 movies per page, the page can be altered with the `page` query params
+
+  1. [x] all movies
+  3.  [x] by a genre
+
+* [X]Columns include: imdb id, title, genres, release date, budget
+
+* [x] Budget is displayed in dollars
+
+#### Movie Details
+/movies/:id
+AC:
+
+* An endpoint exists that lists the movie details for a particular movie
+* Details should include: imdb id, title, description, release date, budget, runtime, average rating, genres, original language, production companies
+* Budget should be displayed in dollars
+* Ratings are pulled from the rating database
+
+# [X] _budget as dollars
+# [ ] _pagination
+# [ ] _rating rounded
+# [ ] _genre parsed
+# [ ] _add tests
+# [ ] _refactor
+# [ ] _json partial for similar content
+
