@@ -9,4 +9,4 @@ class Movie < Sequel::Model(db)
     movie.genres = JSON.parse(movie.genres)
     movie
   end
-end
+  end
