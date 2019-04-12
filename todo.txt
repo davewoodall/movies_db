@@ -37,7 +37,9 @@ AC:
 
 # [ ] _add tests
 # [ ] _refactor
-
+      # [ ] the require statements
+      # [ ] Sinatra config.ru
+# [ ] page info?
 # [ ] readme
 # [ ] collect all the curl commands
 # [ ] talking points

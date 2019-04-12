@@ -1,9 +1,10 @@
-require_relative '../db/db'
+# frozen_string_literal: true
 
 db = DB.connect('./db/ratings.db', :ratings)
 
 class Rating < Sequel::Model(db)
-  def self.movie_ratings(id)
-    Rating.where(movieId: id).avg(:rating).round(2)
+  def movie_ratings(id)
+    rating = Rating.where(movieId: id).avg(:rating)
+    rating&.round(2)
   end
 end

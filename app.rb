@@ -1,18 +1,18 @@
-require "sinatra"
-require './models/flick'
-require 'sinatra/jbuilder'
+# frozen_string_literal: true
 
 get '/movies' do
+  flick = Flick.new(params)
   data = if params[:by]
-    Flick.by(params)
-  else
-    Flick.index(params)
+           flick.by
+         else
+           flick.index
   end
+
   jbuilder(:'movies/index', {}, data: data)
 end
 
 get '/movies/:id' do
-  jbuilder(:'movies/show', {}, { data: Flick.show(params[:id])})
+  flick = Flick.new(params)
+
+  jbuilder(:'movies/show', {}, data: flick.show)
 end
-
-

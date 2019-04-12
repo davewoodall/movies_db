@@ -1,35 +1,44 @@
-# _dw move to config.ru?
-require_relative './movie'
-require_relative './rating'
+# frozen_string_literal: true
 
 class Flick
+  attr_reader :params, :movie, :rating
 
-  def self.movie(movie=Movie)
-    movie
+  def initialize(params, movie = Movie, rating = Rating)
+    @params = params
+    @movie = movie.new
+    @rating = rating.new
   end
 
-  def self.index(params)
+  def index
     movie.index(params)
   end
 
-  def self.show(id)
-    movie.show(id)[:attributes].push( {rating: Rating.movie_ratings(id)})
+  def show
+    movie_with_ratings(params[:id])
   end
 
-  def self.by(params)
+  def by
     case params[:by]
-    when 'year' then year(params)
-    when 'genre' then genre(params)
+    when 'year' then year
+    when 'genre' then genre
     end
   end
 
-  def self.year(params)
+  def year
     movie.year(params)
   end
 
-  def self.genre(params)
+  def genre
     movie.genre(params)
   end
+
+  private
+
+  def movie_with_ratings(id)
+    flick = movie.show(id)
+    flick[:attributes].push(
+      rating: rating.movie_ratings(id)
+    )
+    flick
+  end
 end
-
-
