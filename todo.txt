@@ -24,10 +24,11 @@ AC:
 * Ratings are pulled from the rating database
 
 # [X] _budget as dollars
-# [ ] _pagination
+# [x] _pagination
 # [ ] _rating rounded
-# [ ] _genre parsed
+# [x] _genre parsed
 # [ ] _add tests
 # [ ] _refactor
 # [ ] _json partial for similar content
+# [ ] _hateos
 

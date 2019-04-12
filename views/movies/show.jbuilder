@@ -13,3 +13,4 @@ json.runtime flick[:movie].runtime
 json.language flick[:movie].language
 json.genres flick[:movie].genres
 json.status flick[:movie].status
+

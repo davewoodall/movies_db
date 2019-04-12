@@ -6,17 +6,13 @@ get '/movies' do
   data = if params[:by]
     Flick.by(params)
   else
-    Flick.all
+    Flick.index(params)
   end
   jbuilder(:'movies/index', {}, data: data)
 end
 
-get '/' do
-  jbuilder(:'movies/index', {}, data: Flick.all)
-end
-
 get '/movies/:id' do # _pageination
-  jbuilder(:'movies/show', {}, { flick: Flick.new.movie(params[:id])})
+  jbuilder(:'movies/show', {}, { flick: Flick.show(params[:id])})
 end
 
 
