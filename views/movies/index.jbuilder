@@ -1,3 +1,4 @@
-json.movies data
+json.partial! 'movies/movies', data: data
+
 
 

@@ -5,12 +5,18 @@
   2.  by a particular year
     * [ ] List is sorted by date in chronological order
     * [ ] Sort order can be descending
-* [ ] List is paginated: 50 movies per page, the page can be altered with the `page` query params
+* [x] List is paginated: 50 movies per page, the page can be altered with the `page` query params
 
   1. [x] all movies
   3.  [x] by a genre
 
 * [X]Columns include: imdb id, title, genres, release date, budget
+
+
+ imdb id, title, release date, budget, genres,
+
+ description,  runtime, average rating, original language, production companies
+* Budget should be displayed in dollars
 
 * [x] Budget is displayed in dollars
 
@@ -25,10 +31,19 @@ AC:
 
 # [X] _budget as dollars
 # [x] _pagination
-# [ ] _rating rounded
+
 # [x] _genre parsed
+# [x] _json partial for similar content
+
 # [ ] _add tests
 # [ ] _refactor
-# [ ] _json partial for similar content
-# [ ] _hateos
 
+## AC:
+[x] all
+[x] genre
+[ ] year
+  * [ ] List is sorted by date in chronological order
+  * [ ] Sort order can be descending
+  * [ ] _hateos
+[ ] id
+  * [ ] _rating rounded
