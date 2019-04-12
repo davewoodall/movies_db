@@ -24,7 +24,13 @@ class Movie < Sequel::Model(db)
   end
 
   def self.year(params)
-    get_movies_by(:releaseDate, params)
+    years = get_movies_by(:releaseDate, params)
+    case params[:order]
+    when 'desc'
+      years.sort { |small, big| big[:releaseDate] <=> small[:releaseDate]}
+    else
+      years.sort { |small, big| small[:releaseDate] <=> big[:releaseDate]}
+    end
   end
 
   def self.genre(params)
