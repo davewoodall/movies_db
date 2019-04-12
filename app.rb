@@ -11,8 +11,8 @@ get '/movies' do
   jbuilder(:'movies/index', {}, data: data)
 end
 
-get '/movies/:id' do # _pageination
-  jbuilder(:'movies/show', {}, { flick: Flick.show(params[:id])})
+get '/movies/:id' do
+  jbuilder(:'movies/show', {}, { data: Flick.show(params[:id])})
 end
 
 

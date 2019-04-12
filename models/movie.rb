@@ -10,10 +10,19 @@ class Movie < Sequel::Model(db)
 
   def self.show(id)
     # _dw show
-    movie = Movie[id]
-    movie.productionCompanies = JSON.parse(movie.productionCompanies)
-    movie.genres = JSON.parse(movie.genres)
+    query = Movie[id]
+    movie = parse(query)
+    movie[:relationships].push(
+      { productionCompanies:
+        JSON.parse(query.productionCompanies)
+      })
+    movie[:attributes].concat [
+      {description: query.overview},
+      {runtime: query.runtime},
+      {language: query.language}
+    ]
     movie
+
   end
 
   def self.index(params, limit=50)
@@ -46,11 +55,19 @@ class Movie < Sequel::Model(db)
 
   def self.parse(movie)
     {
-      imdbId: movie.imdbId,
-      title: movie.title,
-      releaseDate: movie.releaseDate,
-      budget: Number.usd(movie.budget),
-      genres: JSON.parse(movie.genres),
+      attributes: [
+      {imdbId: movie.imdbId},
+      {title: movie.title},
+      {releaseDate: movie.releaseDate},
+      {budget: Number.usd(movie.budget)},
+      ],
+      relationships: [
+        genres: JSON.parse(movie.genres)
+      ],
+      links: [
+        rel: "self",
+        href: "http://localhost:9292/movies/#{movie.movieId}"
+      ]
     }
   end
 end

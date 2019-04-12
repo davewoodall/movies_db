@@ -38,12 +38,22 @@ AC:
 # [ ] _add tests
 # [ ] _refactor
 
+# [ ] readme
+# [ ] collect all the curl commands
+# [ ] talking points
+
 ## AC:
 [x] all
+localhost:
+
+
 [x] genre
-[ ] year
-  * [ ] List is sorted by date in chronological order
-  * [ ] Sort order can be descending
-  * [ ] _hateos
-[ ] id
-  * [ ] _rating rounded
+[x] year
+  * [x] List is sorted by date in chronological order
+  http://localhost:9292/movies?by=year&for=1999&page=2
+  * [x] Sort order can be descending
+  http://localhost:9292/movies?by=year&for=1999&order=desc
+  * [x] _hateos
+[x] id
+  * [x] _rating rounded
+

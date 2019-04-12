@@ -13,10 +13,7 @@ class Flick
   end
 
   def self.show(id)
-    {
-      movie: movie.show(id),
-      rating: Rating.movie_ratings(id)
-    }
+    movie.show(id)[:attributes].push( {rating: Rating.movie_ratings(id)})
   end
 
   def self.by(params)
